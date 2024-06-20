@@ -1,0 +1,125 @@
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solicitud de MVR</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+        h1 {
+            text-align: center;
+            color: #007BFF;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        label {
+            margin-top: 10px;
+        }
+        input, select, textarea {
+            margin-top: 5px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .instructions {
+            position: absolute;
+            right: -350px;
+            top: 320px;
+            width: 300px;
+            padding: 10px;
+            background-color: #007BFF;
+            color: white;
+            border-radius: 5px;
+        }
+        .instructions:after {
+            content: '';
+            position: absolute;
+            left: -20px;
+            top: 20px;
+            border-width: 10px;
+            border-style: solid;
+            border-color: transparent #007BFF transparent transparent;
+        }
+        .note {
+            margin-top: 10px;
+            font-style: italic;
+            color: #888;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Solicitud de MVR</h1>
+        <form action="/submit" method="post">
+            <label for="name">Nombre</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="usdot">US DOT</label>
+            <input type="text" id="usdot" name="usdot" required>
+
+            <label for="legalname">Nombre Legal</label>
+            <input type="text" id="legalname" name="legalname" required>
+
+            <label for="state">Estado</label>
+            <input type="text" id="state" name="state" required>
+
+            <label for="cdl">Foto de CDL</label>
+            <input type="file" id="cdl" name="cdl" accept="image/*" multiple>
+
+            <label for="payment">Método de Pago</label>
+            <select id="payment" name="payment" required>
+                <option value="credit_card">Credit Card</option>
+                <option value="ach">ACH</option>
+                <option value="epay">Epay</option>
+                <option value="other">Other</option>
+            </select>
+
+            <label for="additional-info">Información Adicional</label>
+            <textarea id="additional-info" name="additional-info" rows="5" required></textarea>
+
+            <p class="note">
+                Favor de escribir la información de la licencia y la información del método de pago en este espacio. Si el pago fue por medio de Epay, favor de subir el archivo en la sección de "Foto de CDL".
+            </p>
+
+            <button type="submit">Enviar Solicitud</button>
+        </form>
+        <div class="instructions">
+            - Últimos 4 números de SSN para licencias de: Pennsylvania y Plataforma Texas DPS<br>
+            - Foto de licencia es necesaria para plataforma Texas DPS<br>
+            - Costo MVR en California y Wyoming $16.00<br>
+            - Costo MVR en Texas DPS $7.50<br>
+            - Costo MVR en general $15.00
+        </div>
+    </div>
+</body>
+</html>
